@@ -45,6 +45,16 @@ function exp(power, base){
     }
     return res;
 }
+
+function wer(mat){
+    let l = mat.length;
+    let res = "{";
+    for(let i = 0; i<l-1; i++){
+        res += `{${String(a[i])}}, `;
+    }
+    res += `{${String(a[l-1])}}}`;
+    console.log("det " + res);
+}
 function det(matrix){
     let l = matrix.length;
     if(l==1){
@@ -60,12 +70,7 @@ for(let i = 0; i<l; i++){
 
     
 }
-function wer(mat){
-    let l = mat.length;
-    let res = "{";
-    for(let i = 0; i<l-1; i++){
-        res += `{${String(a[i])}}, `;
-    }
-    res += `{${String(a[l-1])}}}`;
-    console.log("det " + res);
+function all(n){
+console.log(wer(randomArray(n)));
+console.log(det(randomArray(n)));
 }
