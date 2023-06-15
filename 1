@@ -1,0 +1,64 @@
+function m(matr, b){
+    let l = matr.length;
+    let res = [];
+    let cols = [];
+    let rows = [];
+    let nr = 0;
+    let nc = 0;
+    let g = 0;
+   for(let i = 0; i<l; i++){
+       g = 0;
+       for(let k = 0; k<b.length; k++){
+           if(i==b[k][0]){
+               g++;
+           }else{
+               g += 0;
+           }
+       }
+       if(g==0){
+           rows[nr] = i;
+           nr++;
+       }else{
+           let z = 0;
+       }
+   }
+    for(let i = 0; i<l; i++){
+       g = 0;
+       for(let k = 0; k<b.length; k++){
+           if(i==b[k][1]){
+               g++;
+           }else{
+               g += 0;
+           }
+       }
+       if(g==0){
+           cols[nc] = i;
+           nc++;
+       }else{
+           let z = 0;
+       }
+   }
+    for(let i = 0; i<nc; i++){
+        res[i] = [];
+        for(let j = 0; j<nc; j++){
+            res[i][j] = matr[rows[i]][cols[j]];
+        }
+    }
+    return res;
+}
+function randomArray(n){
+a = [];
+str = "";
+for(let i = 0; i<n; i++){
+    a[i] = [];
+    for(let j = 0; j<n; j++){
+        a[i][j] = Math.round((Math.random()*100));
+    }
+}
+    for(let i = 0; i<n; i++){
+        for(let j = 0; j<n; j++){
+            str = `${str}     ${a[i][j]}`;
+        }
+        str = `${str}\n`;
+    }
+}
