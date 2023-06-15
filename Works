@@ -1,0 +1,71 @@
+function randomArray(n){
+a = [];
+str = "";
+for(let i = 0; i<n; i++){
+    a[i] = [];
+    for(let j = 0; j<n; j++){
+        a[i][j] = Math.round((Math.random()*100));
+    }
+}
+    for(let i = 0; i<n; i++){
+        for(let j = 0; j<n; j++){
+            str = `${str}     ${a[i][j]}`;
+        }
+        str = `${str}\n`;
+    }
+}
+function subm(col, matr){
+    let l = matr.length;
+    let allrow = [];
+    for(let i = 0; i<l-1; i++){
+        allrow[i] = [];
+        for(let j = 0; j<l; j++){
+            allrow[i][j] = matr[i+1][j];
+        }
+    }
+    let all = [];
+    for(let i = 0; i<l-1; i++){
+        all[i] = [];
+        for(let j = 0; j<col; j++){
+            all[i][j] = allrow[i][j];
+        }
+    }
+    for(let i = 0; i<l-1; i++){
+        for(let j = 1+col; j<l; j++){
+            all[i][j-1] = allrow[i][j];
+        }
+    }
+    return all;
+}
+function exp(power, base){
+    let res = 1;
+    for(let i = 0; i<power; i++){
+        res *= base;
+    }
+    return res;
+}
+function det(matrix){
+    let l = matrix.length;
+    if(l==1){
+        return matrix[0][0];
+    }else{
+let sum = 0;
+for(let i = 0; i<l; i++){
+    console.log(matrix[0][i]);
+    sum += matrix[0][i]*exp(1+i, -1)*det(subm(i, matrix))
+}
+    return sum;
+    
+    }
+
+    
+}
+function wer(mat){
+    let l = mat.length;
+    let res = "{";
+    for(let i = 0; i<l-1; i++){
+        res += `{${String(a[i])}}, `;
+    }
+    res += `{${String(a[l-1])}}}`;
+    console.log("det " + res);
+}
