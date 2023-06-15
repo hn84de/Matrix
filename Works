@@ -51,7 +51,6 @@ function det(matrix){
     }else{
 let sum = 0;
 for(let i = 0; i<l; i++){
-    console.log(matrix[0][i]);
     sum += matrix[0][i]*exp(1+i, -1)*det(subm(i, matrix))
 }
     return sum;
