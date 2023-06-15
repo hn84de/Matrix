@@ -71,6 +71,7 @@ for(let i = 0; i<l; i++){
     
 }
 function all(n){
-console.log(wer(randomArray(n)));
-console.log(det(randomArray(n)));
+    let b = randomArray(n);
+console.log(wer(b));
+console.log(det(b));
 }
