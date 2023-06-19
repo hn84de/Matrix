@@ -112,3 +112,20 @@ function excMatrix(matrix, row, col){
     }
     return res;
 }
+
+function multiply(a, b){
+    let res = [];
+    let sum = 0;
+    let l = a.length;
+    for(let i = 0; i<l; i++){
+        res[i] = [];
+        for(let j = 0; j<l; j++){
+            sum = 0;
+            for(let k = 0; k<l; k++){
+                sum += a[i][k]*b[k][j];
+            }
+            res[i][j] = sum;
+        }
+    }
+    return res;
+}
