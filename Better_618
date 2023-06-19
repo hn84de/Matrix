@@ -76,3 +76,39 @@ function determinant(matrix){
         return res;
     }
 }
+
+function excMatrix(matrix, row, col){
+    let len = matrix.length;
+    let remcol = [];
+    let g = 0;
+    for(let i = 0; i<row; i++){
+        g = i;
+        remcol[g] = [];
+        for(let j = 0; j<len; j++){
+            remcol[g][j] = matrix[i][j];
+        }
+    }
+    for(let i = row+1; i<len; i++){
+        g = i-1;
+        remcol[g] = [];
+        for(let j = 0; j<len; j++){
+            remcol[g][j] = matrix[i][j];
+        }
+    }
+    let res = [];
+    let h = 0;
+    for(let i = 0; i<len-1; i++){
+        res[i] = [];
+        for(let j = 0; j<col; j++){
+            h = j;
+            res[i][h] = remcol[i][j];
+        }
+    }
+    for(let i = 0; i<len-1; i++){
+        for(let j = col+1; j<len; j++){
+            h = j-1;
+            res[i][h] = remcol[i][j];
+        }
+    }
+    return res;
+}
