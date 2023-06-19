@@ -129,3 +129,15 @@ function multiply(a, b){
     }
     return res;
 }
+
+function inverseMatrix(matrix){
+    let l = matrix.length;
+    let resi = [];
+    for(let i = 0; i<l; i++){
+        resi[i] = [];
+        for(let j = 0; j<l; j++){
+            resi[i][j] = (1/determinant(matrix))*determinant(excMatrix(matrix, j, i))*power(-1, (i+j));
+        }
+    }
+    return resi;
+}
